@@ -41,8 +41,9 @@ namespace Aula31WhatsAppConsole
         }
 
         List<string> linhas = new List<string>();
-        public void Excluir(string _contato)
+        public void Excluir(Contato _cont, string _contato)
             {
+                contato.Remove(_cont);
             List<string> linhas = new List<string>();
 
             using(StreamReader arquivo = new StreamReader(PATH))
@@ -59,10 +60,6 @@ namespace Aula31WhatsAppConsole
 
         }
         public void Listar()
-        {
-            
-        }
-            public void Ler()
         {
             foreach(Contato con in contato)
             {

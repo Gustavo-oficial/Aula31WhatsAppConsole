@@ -4,7 +4,7 @@ namespace Aula31WhatsAppConsole
     {
          void Cadastrar(Contato _contato);
 
-         void Excluir(string _contato);
+         void Excluir(Contato _cont,string _contato);
 
          void Listar();
          

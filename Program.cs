@@ -59,13 +59,17 @@ namespace Aula31WhatsAppConsole
                 case "nao":System.Console.WriteLine("Selecione o contato que deseja excluir");
                 string resposta = Console.ReadLine();
                 if( resposta == "Bruno"){
-                   conta.Excluir("Bruno");
+                   conta.Excluir(cont1,"Bruno");
+                   conta.Listar();
                   }else if( resposta== "Barbara"){
-                       conta.Excluir("Barbara");
+                       conta.Excluir(cont2,"Barbara");
+                       conta.Listar();
                   }else if(resposta== "Tobias"){
-                       conta.Excluir("Tobias");
+                       conta.Excluir(cont4,"Tobias");
+                       conta.Listar();
                   }else if(resposta == "Marina"){
-                     conta.Excluir("Marina");
+                     conta.Excluir(cont3,"Marina");
+                     conta.Listar();
                   }
                 break;
                 
