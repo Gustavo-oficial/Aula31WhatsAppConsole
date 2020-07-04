@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Aula31WhatsAppConsole
 {
@@ -7,7 +9,11 @@ namespace Aula31WhatsAppConsole
     {
         private const string PATH = "Database/contato.csv";
 
-        public Agenda()
+
+        public Agenda(){
+
+        }
+        public Agenda(string Nome, int Numero)
         {         
             string pasta = PATH.Split('/')[0];
 
@@ -21,25 +27,53 @@ namespace Aula31WhatsAppConsole
             }
         }
 
-        public void Cadastrar(Contato _nome, Contato _numero)
-        {
-            List<Contato> contatos = new List<Contato>();
 
-            string [] linha = new string []  { CriarLinha(_nome,_numero)};
+        public void Cadastrar(Contato _contato)
+        {
+            string [] linha = new string []  { CriarLinha(_contato)};
             File.AppendAllLines(PATH, linha);
         }
 
-        public void Excluir(Contato _nome, Contato _numero)
-        {
-            
+        List<Contato> contato = new List<Contato>();
+        public void Adicionar(Contato _contato){
+            contato.Add(_contato);
+        
         }
+
+        public void Excluir(Contato _contato)
+        {
+             contato.Remove(_contato);
+             
+        }
+        
         public void Listar()
         {
             
         }
+            public void Ler()
+        {
+            foreach(Contato con in contato)
+            {
+                Console.WriteLine($"{con.Nome} ");
+            }
+        }
 
-        private string CriarLinha(Contato _nome, Contato _numero){
-              return $"{_nome};{_numero} \n";
+        private void ReescreverCsv(List<string> lines){
+             
+             using(StreamWriter output = new StreamWriter(PATH)){
+              foreach(string ln in lines){
+                output.Write(ln + "\n");
+              }
+            }
+        }
+
+        //  public List<Contato> Buscar(string Nome)
+        // {
+        //     return Ler().FindAll(x => x.Nome == Nome);
+        // }
+
+        public string CriarLinha(Contato c){
+              return $"{c.Nome};{c.Numero} \n";
           }
     }
 }
