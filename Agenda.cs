@@ -40,12 +40,24 @@ namespace Aula31WhatsAppConsole
         
         }
 
-        public void Excluir(Contato _contato)
-        {
-             contato.Remove(_contato);
-             
+        List<string> linhas = new List<string>();
+        public void Excluir(string _contato)
+            {
+            List<string> linhas = new List<string>();
+
+            using(StreamReader arquivo = new StreamReader(PATH))
+            {
+                string linha;
+                while((linha = arquivo.ReadLine()) != null){
+                    linhas.Add(linha);
+                }
+            }
+
+            linhas.RemoveAll(z => z.Contains(_contato));
+
+            ReescreverCsv(linhas);
+
         }
-        
         public void Listar()
         {
             
@@ -54,7 +66,7 @@ namespace Aula31WhatsAppConsole
         {
             foreach(Contato con in contato)
             {
-                Console.WriteLine($"{con.Nome} ");
+                Console.WriteLine($"Nome: {con.Nome} ");
             }
         }
 
