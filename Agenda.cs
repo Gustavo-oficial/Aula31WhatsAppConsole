@@ -26,8 +26,7 @@ namespace Aula31WhatsAppConsole
                 File.Create(PATH).Close();
             }
         }
-
-
+        
         public void Cadastrar(Contato _contato)
         {
             string [] linha = new string []  { CriarLinha(_contato)};

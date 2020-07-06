@@ -29,7 +29,8 @@ namespace Aula31WhatsAppConsole
             System.Console.WriteLine("Deseja mandar uma mensagem? \n Digite sim para mandar, caso ao contrario digite nao");
             string condicao = Console.ReadLine();
             Console.Clear();
-            
+
+            //Condição criada para que o usuario digite uma mensagem ou exclua um contato, caso contrario termina a condição
             switch (condicao)
             {
                 case "sim":System.Console.WriteLine("Selecione o contato para que deseja enviar a mensagem");
@@ -39,23 +40,24 @@ namespace Aula31WhatsAppConsole
                   if( Destinatario == "Bruno"){
                       System.Console.WriteLine("Digite sua mensagem aqui");
                       string Texto = Console.ReadLine();
-                      System.Console.WriteLine(mensagem.EnviarMensagem(Texto));
+                      System.Console.WriteLine(mensagem.EnviarMensagem(cont1, Texto));
                   }else if(Destinatario == "Barbara"){
                        System.Console.WriteLine("Digite sua mensagem aqui");
                       string Texto = Console.ReadLine();
-                      System.Console.WriteLine(mensagem.EnviarMensagem(Texto));
+                      System.Console.WriteLine(mensagem.EnviarMensagem(cont2, Texto));
                   }else if(Destinatario == "Tobias"){
                        System.Console.WriteLine("Digite sua mensagem aqui");
                       string Texto = Console.ReadLine();
-                      System.Console.WriteLine(mensagem.EnviarMensagem(Texto));
+                      System.Console.WriteLine(mensagem.EnviarMensagem(cont4, Texto));
                   }else if(Destinatario == "Marina"){
                      System.Console.WriteLine("Digite sua mensagem aqui");
                       string Texto = Console.ReadLine();
-                      System.Console.WriteLine(mensagem.EnviarMensagem(Texto));
-                      System.Console.WriteLine($"Voce:{Texto}");
+                      System.Console.WriteLine(mensagem.EnviarMensagem(cont3, Texto));
                   }
                 break;
 
+
+                 //Caso o usuario deseje excluir um contato é so digitar o nomedo contato salvo
                 case "nao":System.Console.WriteLine("Selecione o contato que deseja excluir");
                 string resposta = Console.ReadLine();
                 if( resposta == "Bruno"){
@@ -73,7 +75,7 @@ namespace Aula31WhatsAppConsole
                   }
                 break;
                 
-                default:System.Console.WriteLine("Digite uma opção valida!");
+                default:System.Console.WriteLine("Ok!");
                 break;
             }
 
